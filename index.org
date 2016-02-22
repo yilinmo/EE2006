@@ -1,8 +1,9 @@
+#+OPTIONS:   H:4 num:nil toc:nil author:nil timestamp:nil tex:t 
+#+BEGIN_HTML
 ---
 layout: default
 title: Home
 ---
+#+END_HTML
 
-<p>
 The website for the Tutorial of EE2006 in Spring 2016 Semester.
-</p>

@@ -5,13 +5,13 @@ highlighter:      pygments
 title:            Yilin Mo
 tagline:          'EE2006 Tutorial'
 description:      'Tutorial for EE2006'
-url:              http://yilinmo.github.io/EE2006
-baseurl:          /
+url:              http://yilinmo.github.io/
+baseurl:          /EE2006
 #cover_image: /public/zion.png
 
-author:
-name:           'Yilin Mo'
-email:            ylmo@ntu.edu.sg
+#author:
+#name:           'Yilin Mo'
+#email:            ylmo@ntu.edu.sg
 
 #paginate:         5
 #paginate_path:    "/notes/page:num"
