@@ -297,7 +297,7 @@ Therefore, $k_1 = 0$, $k_2 = 1/(s^2+\pi^2)$ and *one* solution of \eqref{eq:pde3
 \label{eq:pde3soln}
 U = \frac{1}{s^2+\pi^2}\sin(\pi x).
 \end{align}
-Thus, *All* the solution of \eqref{eq:pde3b} will equal to the particular solution \eqref{eq:pde3soln} plus the general solution for the homogenous equation \eqref{eq:per3homosolun}, i.e.,
+Thus, *All* the solution of \eqref{eq:pde3b} will equal to the particular solution \eqref{eq:pde3soln} plus the general solution for the homogenous equation \eqref{eq:pde3homosoln}, i.e.,
 \begin{align}
 \label{eq:pde3allsolution}
 U = \frac{1}{s^2+\pi^2}\sin(\pi x) + A_1 \exp(sx) + A_2 \exp(-sx).
