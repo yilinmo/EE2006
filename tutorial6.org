@@ -8,7 +8,7 @@ comments: true
 #+END_HTML
 -----
 
-/This page can be commented/
+/You can provide comments at the end of this page if you find some proofs confusing. Alternatively, you can also annotate the page by selecting the text and write down your questions (it might not on smart phones). I will try to answer them asap./
 
 * Problem 1
 /Show that the solution obtained by the Method of Separation of Variables to the PDE:/
@@ -122,7 +122,7 @@ Substituting \eqref{eq:u2a} into \eqref{eq:pde2}, we get
 \label{eq:pde2a}
 F(x)G'(t) = 2F''(x) G(t)\Rightarrow \frac{G'(t)}{2G(t)}=\frac{F''(x)}{F(x)} = \mu,
 \end{align}
-where $\mu is some constant.
+where $\mu$ is some constant.
 
 For the first ODE, we will use the same techniques as in \eqref{eq:ode1} and \eqref{eq:ode1a} to get
 \begin{align}
@@ -143,7 +143,7 @@ Let us define
 \end{align}
 
 
-This is a second-order homogeneous ODE with constant coefficient. The general solution[fn:1] of this ODE is
+Equation \eqref{eq:ode22} is a second-order homogeneous ODE with constant coefficient. The general solution[fn:1] of this ODE is
 \begin{align}
 \label{eq:ode22a}
 F(x) = \begin{cases}
@@ -268,7 +268,7 @@ The above equation is a PDE. However, since we only take the derivative w.r.t. $
 We will rewrite \eqref{eq:pde3a} as
 \begin{align}
 \label{eq:pde3b}
-U_{xx} - s^2 U = \sin(\pi x).
+U_{xx} - s^2 U = -\sin(\pi x).
 \end{align}
 The above equation is a constant coefficients *nonhomogeneous* ODE. The corresponding *homogeneous* equation is
 \begin{align}
@@ -345,6 +345,63 @@ y(0,t)&=H(t), \label{eq:init4b}\\
 \end{align}
 /where $H(t)$ is the unit step function./
 
+1. /Solve $y(x,t)$ using Laplace Transform/
+2. /Why does it not help to apply Laplace transform to solve/
+\[
+ty_x - x y_t = 0.
+\]
+
+*Solution*: Notice that the PDE \eqref{eq:pde4} is *only invariant in* $t$, we need to take the Laplace transform w.r.t. $t$.
+
+Define
+\begin{align}
+\label{eq:lt4}
+Y(x,s) = \int_0^\infty y(x,t)\exp(-st)dt.
+\end{align}
+
+As a result
+\begin{align}
+\label{eq:lt4a}
+\int_0^\infty y_x(x,t)\exp(-st)dt &= Y_x(x,s)\\
+\int_0^\infty x^2y_t(x,t)\exp(-st)dt &= x^2\left[sY(x,s)-y(x,0)\right]=x^2sY(x,s)
+\end{align}
+
+Hence, we can take the Laplace transform on both sides of \eqref{eq:pde4} and rewrite it as
+\begin{align}
+\label{eq:ode4}
+Y_x - x^2 s Y = 0\Rightarrow \frac{Y_x}{Y} =x^2s.
+\end{align}
+
+We can view $s$ as a constant and solve the above equation as an ODE. Use \eqref{eq:chainrule}, we take the integral over $x$ on both sides of the equation and get
+\begin{align}
+\label{eq:ode4a}
+\int \frac{Y_x}{Y}dx =\int x^2s dx\Rightarrow \log(Y) = \frac{1}{3}x^3s+C\Rightarrow Y = A \exp\left(\frac{1}{3}x^3s\right),
+\end{align}
+where $C$ and $A=\exp(C)$ are some constants.
+
+We now use the boundary condition \eqref{eq:init4b} and get
+\begin{align}
+\label{eq:boundary4}
+Y(0,s) = \int_0^\infty H(t) \exp(-st)dt = \frac{1}{s}.\\
+\end{align}
+
+On the other hand, from \eqref{eq:ode4a}, $Y(0,s) = A$, which implies that $A = 1/s$ and
+\begin{align}
+\label{eq:ode4b}
+Y(x,s) = \frac{1}{s}\exp\left(\frac{1}{3}x^3s\right).
+\end{align}
+
+Now we know that 
+\[
+\mathcal L\left\{H(t)\right\} = \frac{1}{s},
+\]
+
+So using the time shift properties of Laplace Transform, we can conclude that
+\[
+y(x,t) = H\left(t+\frac{1}{3}x^3\right).
+\]
+ 
+For the PDE $ty_x - xy_t = 0$, it is neither invariant w.r.t. $t$ nor invariant w.r.t. $x$. Hence, we *cannot* use Laplace transform to solve it since we need to take the Laplace Transform w.r.t. an invariant variable.
 
 [fn:1] You can check find an introduction on this type of ODE [[https://en.wikipedia.org/wiki/Linear_differential_equation#Homogeneous_equations_with_constant_coefficients][here]].
 [fn:2] You can use direct integral method for Problem 4 in Tutorial 5 to conclude that the solution of the PDE must be of the form $u(x,t) = F(t-x) + G(t+x)$, where $F$ and $G$ are arbitrary functions.
